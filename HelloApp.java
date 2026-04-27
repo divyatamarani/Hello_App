@@ -1,5 +1,5 @@
 /**
- * UC5 – Display Hello with Multiple Arguments using Enhanced For Loop
+ * UC6 – Display Hello using substring to remove trailing delimiter
  */
 public class HelloApp {
 
@@ -10,16 +10,19 @@ public class HelloApp {
         if (args.length == 0) {
             message = "Hello, World!";
         } else {
-            StringBuilder names = new StringBuilder();
+            StringBuilder nameBuilder = new StringBuilder();
 
             for (String name : args) {
-                if (names.length() > 0) {
-                    names.append(", ");
-                }
-                names.append(name);
+                nameBuilder.append(name).append(", ");
             }
 
-            message = "Hello, " + names.toString() + "!";
+            // Remove trailing ", "
+            if (nameBuilder.length() > 0) {
+                String names = nameBuilder.substring(0, nameBuilder.length() - 2);
+                message = "Hello, " + names + "!";
+            } else {
+                message = "Hello, World!";
+            }
         }
 
         System.out.println(message);
