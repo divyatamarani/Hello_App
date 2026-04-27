@@ -1,5 +1,5 @@
 /**
- * UC6 – Display Hello using substring to remove trailing delimiter
+ * UC7 – Display Hello using String.join()
  */
 public class HelloApp {
 
@@ -10,19 +10,8 @@ public class HelloApp {
         if (args.length == 0) {
             message = "Hello, World!";
         } else {
-            StringBuilder nameBuilder = new StringBuilder();
-
-            for (String name : args) {
-                nameBuilder.append(name).append(", ");
-            }
-
-            // Remove trailing ", "
-            if (nameBuilder.length() > 0) {
-                String names = nameBuilder.substring(0, nameBuilder.length() - 2);
-                message = "Hello, " + names + "!";
-            } else {
-                message = "Hello, World!";
-            }
+            String names = String.join(", ", args);
+            message = "Hello, " + names + "!";
         }
 
         System.out.println(message);
