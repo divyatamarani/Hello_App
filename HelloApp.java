@@ -1,5 +1,5 @@
 /**
- * UC4 – Display Hello with Multiple Command-Line Arguments
+ * UC5 – Display Hello with Multiple Arguments using Enhanced For Loop
  */
 public class HelloApp {
 
@@ -7,11 +7,19 @@ public class HelloApp {
 
         String message;
 
-        if (args.length > 0) {
-            String joinedNames = String.join(", ", args);
-            message = "Hello, " + joinedNames + "!";
-        } else {
+        if (args.length == 0) {
             message = "Hello, World!";
+        } else {
+            StringBuilder names = new StringBuilder();
+
+            for (String name : args) {
+                if (names.length() > 0) {
+                    names.append(", ");
+                }
+                names.append(name);
+            }
+
+            message = "Hello, " + names.toString() + "!";
         }
 
         System.out.println(message);
